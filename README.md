@@ -1,6 +1,6 @@
 # WeTube
 
-Cloning Youtube with Vanilla and NodeJS
+Cloning Youtube built using NodeJS, Express, MangoDB and ES6
 
 ## Pages:
 
