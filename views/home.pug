@@ -4,8 +4,6 @@ include mixins/videoBlock
 block content 
     .videos 
         each video in videos 
-            +videoBlock({
-                title:video.title,
-                views:video.views,
-                videoFile:video.videoFile
-            })
+            +videoBlock(video)
+        else 
+            li Sorry nothing found.

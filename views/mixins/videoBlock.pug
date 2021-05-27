@@ -1,5 +1,8 @@
-mixin videoBlock(video = {})
-    .videoBlock 
-        video.videoBlock__thumbnail(src=video.videoFile, controls=true)
-        h4.videoBlock__title=video.title
-        h6.videoBlock__views=video.views
+mixin videoBlock(info)
+    div
+        h4=info.title
+        ul
+            li #{info.rating}/5.
+            li #{info.comments} comments.
+            li Posted #{info.createdAt}.
+            li #{info.views} views. 
