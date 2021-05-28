@@ -9,6 +9,7 @@ export const search = (req, res) => {
 };
 
 export const upload = (req, res) => res.render("upload", { pageTitle: "Upload"});
+
 export const videoDetail = (req, res) => { 
     const { id } = req.params;
     const video = videos[id - 1];
