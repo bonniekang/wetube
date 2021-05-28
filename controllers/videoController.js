@@ -9,6 +9,10 @@ export const search = (req, res) => {
 };
 
 export const upload = (req, res) => res.render("upload", { pageTitle: "Upload"});
-export const videoDetail = (req, res) => res.render("videoDetail", { pageTitle: "Video Detail"});
+export const videoDetail = (req, res) => { 
+    const { id } = req.params;
+    const video = videos[id - 1];
+    return res.render("videoDetail", { pageTitle: `Watching ${video.title}`}, video);
+}
 export const editVideo = (req, res) => res.render("editVideo", { pageTitle: "Edit Video"});
 export const deleteVideo = (req, res) => res.render("deleteVideo", { pageTitle: "Delete Video"});
