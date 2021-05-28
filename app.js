@@ -24,7 +24,7 @@ app.use(morgan("dev")); //log
 //2.app.use(function(req, res, next){})
 
 app.use(localsMiddleware)
-
+app.use(express.urlencoded({ extended: true }))
 app.use(routes.home, globalRouter);
 app.use(routes.users, userRouter);
 app.use(routes.videos, videoRouter);
