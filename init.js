@@ -1,4 +1,6 @@
 import app from "./app";
+import "./db";
+import "./models/Video.js"
 
 const PORT = 4000;
 
