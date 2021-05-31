@@ -30,9 +30,10 @@ export const postUpload = async (req, res) => {
     }
 }
 
-export const videoDetail = (req, res) => { 
+export const videoDetail = async (req, res) => { 
     const { id } = req.params;
-    return res.render("videoDetail", { pageTitle: `Watching ${video.title}`});
+    const video = await Video.findById(id);
+    return res.render("videoDetail", { pageTitle: `Watching ${video.title}`, video });
 }
 export const editVideo = (req, res) => {
     const { id } = req.params;
