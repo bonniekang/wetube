@@ -1,5 +1,9 @@
 extends layouts/main.pug
 
 block content 
-    .search_header 
-        h3 Searching for: #{searchingBy}
+    form(method="GET")
+        input(placeholder="Searcy by title", name="keyword", type="text")
+        input(type="submit", value="Search now")
+
+    each video in videos 
+        +video(video)

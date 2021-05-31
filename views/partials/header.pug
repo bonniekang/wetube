@@ -3,11 +3,10 @@ header.header
         a(href="/")
             i.fab.fa-youtube
     .header_column 
-        form(action=routes.search, method="get")
-            input(type="text", placeholder="Search by term...", name="term")
-    .header_column 
         ul 
             li 
                 a(href="/videos/upload") Upload Video
             li 
                 a(href="/") Home
+            li 
+                a(href="/search") Search
