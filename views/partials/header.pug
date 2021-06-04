@@ -4,11 +4,19 @@ header.header
             i.fab.fa-youtube
     .header_column 
         ul 
+            if loggedIn
+                li 
+                    a(href="/logout") Logout
+                li 
+                    a(href="/users/:id") #{loggedInUser.name} profile
+            else
+                li 
+                    a(href="/join") Join
+                li 
+                    a(href="/login") Login
             li 
                 a(href="/videos/upload") Upload Video
             li 
                 a(href="/") Home
             li 
                 a(href="/search") Search
-            li 
-                a(href="/join") Join
