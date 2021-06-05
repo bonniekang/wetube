@@ -6,6 +6,8 @@ header.header
         ul 
             if loggedIn
                 li 
+                    a(href="/users/edit") Edit profile
+                li 
                     a(href="/users/logout") Logout
                 li 
                     a(href="/my-profile") #{loggedInUser.name} profile
