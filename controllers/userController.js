@@ -99,6 +99,7 @@ export const finishGithubLogin = async (req, res) => {
         let user = await User.findOne({email: emailObj.email })
         if(!user){
             const user = await User.create({
+                avatarUrl: userData.avatar_url,
                 name: userData.name,
                 socialOnly:true, 
                 username : userData.login,
