@@ -33,7 +33,7 @@ export const postJoin = async (req, res) => {
 export const getLogin = (req, res) => res.render("login", { pageTitle: "Login"});
 
 export const postLogin = async (req, res) => {
-    const { username, password } = res.body;
+    const { username, password } = req.body;
     // check if account exists
     const pageTitle = "Login"
     const user = await User.findOne({username});
