@@ -122,5 +122,14 @@ export const logout = (req, res) => {
 
 export const userDetail = (req, res) => res.render('userDetail', { pageTitle: "User Detail"});
 export const getEditProfile = (req, res) => res.render('editProfile', { pageTitle: "Edit Profile"});
-export const postEditProfile = (req, res) => res.render('editProfile', { pageTitle: "Edit Profile"});
+export const postEditProfile = async (req, res) => {
+    const id = req.session.user._id
+    const { name, email, username, location } = req.body;
+    const updatedUser = await User.findByIdAndUpdate(id, {
+        name, email, username, location,
+    }, {new: true})
+    req.session.user = updatedUser;
+    return res.render('editProfile', { pageTitle: "Edit Profile"});
+}
+
 export const changePassword = (req, res) => res.render('changePassword', { pageTitle: "Change Password"});
