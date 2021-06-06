@@ -124,13 +124,20 @@ export const userDetail = (req, res) => res.render('userDetail', { pageTitle: "U
 export const getEditProfile = (req, res) => res.render('editProfile', { pageTitle: "Edit Profile"});
 export const postEditProfile = async (req, res) => {
     const id = req.session.user._id
+    const avatarUrl = req.session.user.avatarUrl
     const { name, email, username, location } = req.body;
     const file = req.file;
-    const updatedUser = await User.findByIdAndUpdate(id, {
-        name, email, username, location,
-    }, {new: true})
+    const updatedUser = await User.findByIdAndUpdate(
+        id, 
+        {
+            avatarUrl: file ? file.path : avatarUrl,
+            name, 
+            email, 
+            username, 
+            location,
+        }, {new: true})
     req.session.user = updatedUser;
-    return res.redirect("users/edit")
+    return res.redirect("/users/edit")
 }
 
 export const getChangePassword = (req, res) => {
@@ -142,7 +149,7 @@ export const getChangePassword = (req, res) => {
 export const postChangePassword = async (req, res) => {   
     const id = req.session.user._id
     const { oldPassword, newPassword, newPassword1 } = req.body;
-    const user = await User.findById(_id)
+    const user = await User.findById(id)
     const ok = await bcrypt.compare(oldPassword, user.password)
     if(!ok) {
         return res.status(400).render("changePassword", {
