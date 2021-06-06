@@ -8,7 +8,7 @@ userRouter.get("/logout", protectorMiddleware,  logout);
 userRouter.route("/edit")
     .all(protectorMiddleware)
     .get(getEditProfile)
-    .post(postEditProfile);
+    .post(uploadFiles.single("avatar"), postEditProfile);
 
 userRouter.route("/change-password").all(protectorMiddleware).get(getChangePassword).post(postChangePassword);
 

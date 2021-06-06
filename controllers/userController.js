@@ -125,6 +125,7 @@ export const getEditProfile = (req, res) => res.render('editProfile', { pageTitl
 export const postEditProfile = async (req, res) => {
     const id = req.session.user._id
     const { name, email, username, location } = req.body;
+    const file = req.file;
     const updatedUser = await User.findByIdAndUpdate(id, {
         name, email, username, location,
     }, {new: true})
