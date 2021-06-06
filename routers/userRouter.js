@@ -1,5 +1,5 @@
 import express from "express";
-import { userDetail, getEditProfile, postEditProfile, changePassword, logout, startGithubLogin, finishGithubLogin } from "../controllers/userController";
+import { userDetail, getEditProfile, postEditProfile, getChangePassword, postChangePassword, logout, startGithubLogin, finishGithubLogin } from "../controllers/userController";
 import { protectorMiddleware, publicOnlyMiddleware } from "../middlewares"
 
 const userRouter = express.Router();
@@ -9,7 +9,9 @@ userRouter.route("/edit")
     .all(protectorMiddleware)
     .get(getEditProfile)
     .post(postEditProfile);
-userRouter.get("/change-password", changePassword);
+
+userRouter.route("/change-password").all(protectorMiddleware).get(getChangePassword).post(postChangePassword);
+
 // publicOnlyMiddleware : if user logged in, shouldn't be allowed to come this page
 userRouter.get("/github/start", publicOnlyMiddleware, startGithubLogin)
 userRouter.get("/github/finish", publicOnlyMiddleware,  finishGithubLogin)
