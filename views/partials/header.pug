@@ -8,11 +8,11 @@ header.header
                 li 
                     a(href="/videos/upload") Upload Video
                 li 
+                    a(href=`/users/${loggedInUser._id}`) #{loggedInUser.name} profile
+                li 
                     a(href="/users/edit") Edit profile
                 li 
                     a(href="/users/logout") Logout
-                li 
-                    a(href="/my-profile") #{loggedInUser.name} profile
             else
                 li 
                     a(href="/join") Join
