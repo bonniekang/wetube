@@ -4,6 +4,6 @@ include mixins/videoBlock
 block content 
     h1 #{user.name}
     each video in user.videos
-        +video(video)
+        +videoBlock(video)
     else
         li Sorry nothing found. 
