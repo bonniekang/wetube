@@ -1,5 +1,5 @@
 header {
-  padding: 10px 25px;
+  padding: 25px 25px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -8,6 +8,7 @@ header {
     font-size: 30px;
   }
   ul {
+    opacity: 0.8;
     display: flex;
     justify-content: space-between;
     align-items: center;

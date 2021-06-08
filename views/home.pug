@@ -2,8 +2,33 @@ extends layouts/main.pug
 include mixins/videoBlock
 
 block content 
-    .videos 
+    div.video-grid
         each video in videos 
+            +videoBlock(video)
+            +videoBlock(video)
+            +videoBlock(video)
+            +videoBlock(video)
+            +videoBlock(video)
+            +videoBlock(video)
+            +videoBlock(video)
+            +videoBlock(video)
+            +videoBlock(video)
+            +videoBlock(video)
+            +videoBlock(video)
+            +videoBlock(video)
+            +videoBlock(video)
+            +videoBlock(video)
+            +videoBlock(video)
+            +videoBlock(video)
+            +videoBlock(video)
+            +videoBlock(video)
+            +videoBlock(video)
+            +videoBlock(video)
+            +videoBlock(video)
+            +videoBlock(video)
+            +videoBlock(video)
+            +videoBlock(video)
+            +videoBlock(video)
             +videoBlock(video)
         else 
             li Sorry nothing found.
