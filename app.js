@@ -2,7 +2,7 @@ import express from "express"
 import morgan from "morgan"
 import helmet from "helmet"
 import session from "express-session"
-import flash from "express-flash-message"
+import flash from "express-flash"
 import MongoStore from "connect-mongo"
 import { localsMiddleware } from "./middlewares"
 import userRouter from "./routers/userRouter"
@@ -21,7 +21,7 @@ app.use(morgan("dev")); //log
 //2.app.use(function(req, res, next){})
 
 app.use(express.urlencoded({ extended: true }))
-
+app.use(express.json());
 app.use(session({
      //change secret word later
      secret: process.env.COOKIE_SECRET,
