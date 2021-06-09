@@ -2,33 +2,54 @@ extends layouts/main.pug
 include mixins/videoBlock
 
 block content 
-    div.video-grid
-        each video in videos 
-            +videoBlock(video)
-            +videoBlock(video)
-            +videoBlock(video)
-            +videoBlock(video)
-            +videoBlock(video)
-            +videoBlock(video)
-            +videoBlock(video)
-            +videoBlock(video)
-            +videoBlock(video)
-            +videoBlock(video)
-            +videoBlock(video)
-            +videoBlock(video)
-            +videoBlock(video)
-            +videoBlock(video)
-            +videoBlock(video)
-            +videoBlock(video)
-            +videoBlock(video)
-            +videoBlock(video)
-            +videoBlock(video)
-            +videoBlock(video)
-            +videoBlock(video)
-            +videoBlock(video)
-            +videoBlock(video)
-            +videoBlock(video)
-            +videoBlock(video)
-            +videoBlock(video)
-        else 
-            li Sorry nothing found.
+    div.home
+        div.home__list
+            ul 
+                a(href="/").home__logo
+                    i.fas.fa-home
+                    div Home
+                a(href="/").home__logo
+                    i.fas.fa-compass
+                    div Explore
+                a(href="/").home__logo
+                    i.fab.fa-youtube-square
+                    div Subscriptions
+                a(href="/").home__logo
+                    i.fas.fa-history
+                    div History
+                a(href="/").home__logo
+                    i.fas.fa-clock
+                    div Watch later
+                a(href="/").home__logo
+                    i.fas.fa-thumbs-up
+                    div Liked videos
+        div.video-grid
+            each video in videos 
+                +videoBlock(video)
+                +videoBlock(video)
+                +videoBlock(video)
+                +videoBlock(video)
+                +videoBlock(video)
+                +videoBlock(video)
+                +videoBlock(video)
+                +videoBlock(video)
+                +videoBlock(video)
+                +videoBlock(video)
+                +videoBlock(video)
+                +videoBlock(video)
+                +videoBlock(video)
+                +videoBlock(video)
+                +videoBlock(video)
+                +videoBlock(video)
+                +videoBlock(video)
+                +videoBlock(video)
+                +videoBlock(video)
+                +videoBlock(video)
+                +videoBlock(video)
+                +videoBlock(video)
+                +videoBlock(video)
+                +videoBlock(video)
+                +videoBlock(video)
+                +videoBlock(video)
+            else 
+                li Sorry nothing found.

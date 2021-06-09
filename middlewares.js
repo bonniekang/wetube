@@ -1,4 +1,3 @@
-import routes from "./routes";
 import multer from "multer";
 
 export const localsMiddleware = (req, res, next) => {

@@ -1,6 +1,5 @@
 import express from "express"
 import morgan from "morgan"
-import helmet from "helmet"
 import session from "express-session"
 import flash from "express-flash"
 import MongoStore from "connect-mongo"
@@ -11,7 +10,7 @@ import globalRouter from "./routers/globalRouter"
 import apiRouter from "./routers/apiRouter"
 const app = express();
 
-app.use(helmet({ contentSecurityPolicy: false })); //security
+
 app.set('view engine', "pug");
 app.use(morgan("dev")); //log
 

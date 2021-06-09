@@ -1,16 +1,34 @@
+.video__box {
+  display: flex;
+  padding: 2rem;
+  .video__box-1 {
+    flex: 3;
+    margin-right: 15px;
+  }
+  .video__box-2 {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    .video-mixin {
+      margin-bottom: 1rem;
+    }
+  }
+}
+
 .video__comments {
-  background-color: white;
   display: flex;
   flex-direction: column;
-  max-width: 320px;
   width: 100%;
   margin: 0 auto;
   margin-top: 20px;
   .video__comment {
-    background-color: black;
-    color: white;
+    color: black;
+    opacity: 0.8;
     margin-bottom: 10px;
     padding: 5px;
+    i {
+      padding-right: 10px;
+    }
   }
 }
 .video__data {
@@ -31,5 +49,91 @@
       color: cornflowerblue;
       text-decoration: underline;
     }
+  }
+}
+.video-mixin2 {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 10px;
+  .video-mixin__thumb {
+    width: 150px;
+    margin-right: 1rem;
+  }
+  .video-mixin__data {
+    font-size: 18px;
+    .video-mixin__meta {
+      margin-top: 10px;
+      opacity: 0.8;
+      font-size: 12px;
+      line-height: 20px;
+    }
+  }
+}
+.video__title {
+  padding-bottom: 10px;
+}
+.video__data_box {
+  padding-bottom: 30px;
+  border-bottom: solid 1px #dddddd;
+  display: flex;
+  em {
+    padding: 0 5px;
+  }
+}
+
+.video__data-2 {
+  padding: 30px 0 40px 0;
+  border-bottom: solid 1px #dddddd;
+  p {
+    padding-left: 50px;
+    padding-bottom: 10px;
+  }
+  .user__box {
+    display: flex;
+    align-items: center;
+    padding-bottom: 20px;
+    .video__owner {
+      padding-left: 10px;
+    }
+  }
+}
+
+.edit__btn {
+  display: flex;
+  justify-content: flex-end;
+  a {
+    margin-left: 10px;
+    padding: 10px 15px;
+    color: white;
+    border-radius: 5px;
+    background-color: #cc0000;
+  }
+}
+.video__add-comments {
+  display: flex;
+  align-items: center;
+  align-items: center;
+  img {
+    margin-right: 10px;
+  }
+  form {
+    border: none;
+    display: flex;
+    align-items: center;
+  }
+  button {
+    border: none;
+    background-color: black;
+    color: white;
+    padding: 10px 15px;
+    margin-left: 15px;
+  }
+}
+.comment__title {
+  display: flex;
+  align-items: center;
+  padding: 20px 0;
+  div {
+    margin-right: 10px;
   }
 }

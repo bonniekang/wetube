@@ -2,8 +2,21 @@ extends layouts/main.pug
 include mixins/videoBlock
 
 block content 
-    h1 #{user.name}
-    each video in user.videos
-        +videoBlock(video)
-    else
-        li Sorry nothing found. 
+    div.profile__data
+        div.user__box
+            if user.avatarUrl === ""
+                img.header__avatar(src="https://icon-library.com/images/anonymous-user-icon/anonymous-user-icon-2.jpg")
+            else 
+                if user.avatarUrl
+                    if user.avatarUrl.includes("github")
+                        img.header__avatar(src=user.avatarUrl)
+                    else 
+                        img.header__avatar(src=user.avatarUrl)
+            h1=user.name
+    div#video__box
+        p #{user.name}'s video 
+        div.video-grid
+            each video in user.videos
+                +videoBlock(video)
+            else
+                li Sorry nothing found. 

@@ -3,9 +3,14 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  .header_column {
+    display: flex;
+    align-items: center;
+  }
   .header__logo {
     color: $red;
     font-size: 30px;
+    margin-right: 10px;
   }
   ul {
     opacity: 0.8;

@@ -31,13 +31,14 @@ export const postUpload = async (req, res) => {
     const {
         user: { _id },
     } = req.session;
-    const file = req.file;
+    const { video, thumb } = req.files;
     const { title, description, hashtags } = req.body;
     try {
         const newVideo = await Video.create({
             title,
             description,
-            fileUrl: file.path,
+            fileUrl: video[0].path,
+            thumbUrl: thumb[0].path,
             owner: _id,
             hashtags: Video.formatHashtags(hashtags),
         })
@@ -51,12 +52,13 @@ export const postUpload = async (req, res) => {
 }
 
 export const videoDetail = async (req, res) => { 
+    const videos = await Video.find({}).populate("owner");
     const { id } = req.params;
     const video = await Video.findById(id).populate("owner").populate("comments");
     if(!video){
         return res.status(404).render("404", {pageTitle: "video not found."})
     }
-    return res.render("videoDetail", { pageTitle: `Watching ${video.title}`, video });
+    return res.render("videoDetail", { pageTitle: `Watching ${video.title}`, video, videos });
 }
 
 export const editVideo = async (req, res) => {

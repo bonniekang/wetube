@@ -1,46 +1,83 @@
 extends layouts/main.pug
+include mixins/video
 
 block content 
-    div#videoContainer(data-id=video._id)
-        video(src="/" + video.fileUrl)
-        div#videoControls.videoControls
-            div.videoControls__play
-                span#play.videoControls__playBtn
-                    i.fas.fa-play
-                div.videoControls__time
-                    span#currentTime 00:00
-                    span  / 
-                    span#totalTime 00:00
-            input(type="range",step="1", value="0", min="0")#timeline.videoControls__timeline
-            div.videoControls__volume
-                input(type="range",step="0.1", value=0.5, min="0", max="1")#volume
-                span#mute
-                    i.fas.fa-volume-up
-            div
-                span#fullScreen
-                    i.fas.fa-expand
-    div.video__data
-        p.video__title=video.title
-        small.video__owner Uploaded by 
-            a(href=`/users/${video.owner._id}`)=video.owner.name
-        small.video__createdAt=new Date(video.createdAt).toLocaleDateString("en", {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'})
-        p=video.description
-    div
-        if String(video.owner._id) === String(loggedInUser._id)
-            a(href=`${video.id}/edit`) Edit Video 
-            br
-            a(href=`${video.id}/delete`) Delete Video 
-    if loggedIn
-        div.video__add-comments 
-            form.video__comment-form#commentForm
-                textarea(cols="30", rows="10", placeholder="Write a comment...")
-                button Add Comment 
-    div.video__comments 
-        ul 
-            each comment in video.comments.reverse()
-                li.video__comment
-                    i.fas.fa-comment
-                    span #{comment.text}
+    div.video__box
+        div.video__box-1
+            div#videoContainer(data-id=video._id)
+                video(src="/" + video.fileUrl)
+                div#videoControls.videoControls
+                    div.videoControls__play
+                        span#play.videoControls__playBtn
+                            i.fas.fa-play
+                        div.videoControls__time
+                            span#currentTime 00:00
+                            span  / 
+                            span#totalTime 00:00
+                    input(type="range",step="1", value="0", min="0")#timeline.videoControls__timeline
+                    div.videoControls__volume
+                        input(type="range",step="0.1", value=0.5, min="0", max="1")#volume
+                        span#mute
+                            i.fas.fa-volume-up
+                    div
+                        span#fullScreen
+                            i.fas.fa-expand
+            div.video__data
+                p.video__title=video.title
+                div.video__data_box
+                    div #{video.meta.views} views 
+                    em •
+                    div.video__date=new Date(video.createdAt).toLocaleDateString("en", { year: 'numeric', month: 'numeric', day: 'numeric'})
+            div.video__data-2
+                div.user__box
+                    if video.owner.avatarUrl === ""
+                        img.header__avatar(src="https://icon-library.com/images/anonymous-user-icon/anonymous-user-icon-2.jpg")
+                    else 
+                        if video.owner.avatarUrl
+                            if video.owner.avatarUrl.includes("github")
+                                img.header__avatar(src=video.owner.avatarUrl)
+                            else 
+                                img.header__avatar(src=video.owner.avatarUrl)
+                    small.video__owner
+                        a(href=`/users/${video.owner._id}`)=video.owner.name
+                p=video.description
+                p=video.hashtags
+                div.edit__btn
+                    if String(video.owner._id) === String(loggedInUser._id)
+                        a(href=`${video.id}/edit`) Edit Video 
+                        br
+                        a(href=`${video.id}/delete`) Delete Video
+            div.comment__title 
+                div Comments
+                div=video.comments.length
+            if loggedIn
+                div.video__add-comments 
+                    img.header__avatar(src="https://icon-library.com/images/anonymous-user-icon/anonymous-user-icon-2.jpg")
+                    form.video__comment-form#commentForm
+                        textarea(cols="80", rows="2", placeholder="Write a comment...")
+                        button Add Comment 
+            div.video__comments 
+                ul 
+                    each comment in video.comments.reverse()
+                        li.video__comment
+                            i.fas.fa-comment
+                            span #{comment.text}
+        div.video__box-2#videoList
+             each video in videos 
+                +video(video)
+                +video(video)
+                +video(video)
+                +video(video)
+                +video(video)
+                +video(video)
+                +video(video)
+                +video(video)
+                +video(video)
+                +video(video)
+                +video(video)
+                +video(video)
+                +video(video)
+                +video(video)
 
 block scripts 
     script(src="/static/js/videoPlayer.js")

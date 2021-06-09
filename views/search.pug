@@ -1,9 +1,12 @@
 extends layouts/main.pug
+include mixins/videoBlock
 
 block content 
-    form(method="GET")
-        input(placeholder="Searcy by title", name="keyword", type="text")
-        input(type="submit", value="Search now")
+    div.search__bar
+        form(method="GET").search__form
+            input(placeholder="Searcy by title", name="keyword", type="text")
+            button
+                i.fas.fa-search
 
     each video in videos 
-        +video(video)
+        +videoBlock(video)
