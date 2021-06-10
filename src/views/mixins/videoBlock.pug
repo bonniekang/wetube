@@ -1,7 +1,7 @@
 mixin videoBlock(video)
     a(href=`/videos/${video.id}`).video-mixin
         div.video-mixin__thumb
-            video(src="/" + video.fileUrl)
+            video(src=video.fileUrl)
         div.video-mixin__data#video__data
             if video.owner.avatarUrl === ""
                 img.header__avatar(src="https://icon-library.com/images/anonymous-user-icon/anonymous-user-icon-2.jpg")
