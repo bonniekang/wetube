@@ -19,9 +19,8 @@ app.use(morgan("dev")); //log
 //1.app.use((req, res, next) => {})
 
 //2.app.use(function(req, res, next){})
-
-app.use(express.urlencoded({ extended: true }))
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }))
 app.use(session({
      //change secret word later
      secret: process.env.COOKIE_SECRET,
