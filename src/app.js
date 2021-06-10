@@ -12,14 +12,14 @@ const app = express();
 
 
 app.set('view engine', "pug");
-app.set("views", process.cwd() + "./src/views");
+app.set("views", process.cwd() + "/src/views");
 app.use(morgan("dev")); //log
 
 // locals => globals
 //1.app.use((req, res, next) => {})
 
 //2.app.use(function(req, res, next){})
-app.use(express.json());
+
 app.use(express.urlencoded({ extended: true }))
 app.use(session({
      //change secret word later
