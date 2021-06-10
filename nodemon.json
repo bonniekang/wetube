@@ -1,4 +1,4 @@
 {
-    "ignore": ["webpack.config.js", "client/*", "assets/*"],
-    "exec": "babel-node init.js"
+    "ignore": ["webpack.config.js", "src/client/*", "assets/*"],
+    "exec": "babel-node src/init.js"
   }
