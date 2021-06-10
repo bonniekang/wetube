@@ -26,6 +26,7 @@
     "pug": "^3.0.2"
   },
   "scripts": {
+    "start": "node init.js",
     "dev:server": "nodemon",
     "dev:assets": "webpack"
   },
