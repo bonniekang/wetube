@@ -5,7 +5,7 @@ import "./models/Video.js"
 import "./models/User.js"
 import "./models/Comment.js"
 
-const PORT = 4000;
+const PORT = process.env.PORT || 4000;
 
 const handleListening = () => console.log(`Listening on: http://localhost:${PORT}`)
 
