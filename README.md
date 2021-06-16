@@ -2,6 +2,8 @@
 
 Cloning Youtube built using NodeJS, Express, MongoDB and JavaScript ES6.
 
+[Have a look!](youtube-kang.herokuapp.com/)
+
 ## Pages:
 
 ### Home
